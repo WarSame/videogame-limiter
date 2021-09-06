@@ -11,7 +11,9 @@ Limits can be viewed through the Videogame Limiter interface. The current amount
 
 ### Limit enforcer
 
-Limits will have translucent reminder pop-over screens that appear N minutes before the limit will be enforce. These reminders can be used to snooze the limit M times for L minutes before snoozing is disabled. These reminders will contain a countdown with the number of minutes:seconds left.
+![Popover tile](./popover.png "Popover tile")
+
+Limits will have translucent reminder pop-over screens that appear N minutes before the limit will be enforced. These reminders can be used to snooze the limit M times for L minutes before snoozing is disabled. These reminders will contain a countdown with the number of minutes:seconds left.
 
 When the limit is reached the program will be closed.
 
