@@ -2,7 +2,7 @@ from kivy.app import App
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 from kivy.clock import Clock
-from registry import read_app_id
+from registry import enable_app_id_listener
 import logging
 import threading
 
@@ -22,15 +22,14 @@ class VideogameLimiter(App):
         self.layout = BoxLayout(orientation = 'vertical')
         self.button = self.init_button()
         self.layout.add_widget(self.button)
-        Clock.schedule_interval(self.listen_button, 5)
+        enable_app_id_listener(self)
         return self.layout
 
     def init_button(self):
-        return Button(text=f'0')
+        return Button(text='0')
 
-    def listen_button(self, *args):
-        for app_id in read_app_id():
-            self.button.text = f"{app_id}"
+    def set_button(self, app_id):
+        self.button.text = f"{app_id}"
 
 if __name__ == "__main__":
     VideogameLimiter().run()
