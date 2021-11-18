@@ -24,8 +24,8 @@ def update_value(app):
             time.sleep(5)
 
 
-def get_game_name_from_id(id):
+def get_game_name_from_id(game_id):
     client = SteamClient()
-    info = client.get_product_info(apps=[id], timeout=100)
+    info = client.get_product_info(apps=[game_id], timeout=100)
     print(info)
     return info
