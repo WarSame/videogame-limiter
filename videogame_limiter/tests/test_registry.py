@@ -1,4 +1,4 @@
-import registry
+import videogame_limiter.registry
 import unittest
 from steam.client import SteamClient
 
