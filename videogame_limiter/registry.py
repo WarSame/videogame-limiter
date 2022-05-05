@@ -1,8 +1,18 @@
 import logging
 import time
 import threading
-from winreg import ConnectRegistry, HKEY_CURRENT_USER, OpenKey, QueryValueEx
 from steam.client import SteamClient
+import sys
+
+if sys.platform == 'win32':
+     import _winreg as winreg
+elif sys.platform == 'cygwin':
+     import cygwinreg as winreg
+else:
+    import wslwinreg as winreg
+
+from winreg import ConnectRegistry, HKEY_CURRENT_USER, OpenKey, QueryValueEx
+
 
 HKEY_PATH = "SOFTWARE\Valve\Steam"
 HKEY_NAME = "RunningAppID"
