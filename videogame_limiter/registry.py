@@ -1,7 +1,7 @@
-from winreg import *
 import logging
 import time
 import threading
+from winreg import ConnectRegistry, HKEY_CURRENT_USER, OpenKey, QueryValueEx
 from steam.client import SteamClient
 
 HKEY_PATH = "SOFTWARE\Valve\Steam"
