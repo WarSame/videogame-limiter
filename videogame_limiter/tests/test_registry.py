@@ -1,19 +1,12 @@
-import videogame_limiter.registry
-import unittest
 from steam.client import SteamClient
 
 
-class TestRegistry(unittest.TestCase):
-    def test_get_game_name(self):
-        dst_id = 322330
-        client = SteamClient()
-        client.anonymous_login()
-        client.connect()
-        info = client.get_product_info(apps=[dst_id], timeout=10)
-        name = info["apps"][dst_id]["common"]["name"]
-        print(name)
-        assert(name == "Don't Starve Together")
-
-
-if __name__ == "__main__":
-    unittest.main()
+def test_get_game_name():
+    dst_id = 322330
+    client = SteamClient()
+    client.anonymous_login()
+    client.connect()
+    info = client.get_product_info(apps=[dst_id], timeout=10)
+    name = info["apps"][dst_id]["common"]["name"]
+    print(name)
+    assert(name == "Don't Starve Together")
