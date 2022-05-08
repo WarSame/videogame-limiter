@@ -2,16 +2,12 @@ import logging
 import time
 import threading
 from steam.client import SteamClient
-import sys
 
-if sys.platform == 'win32':
-     import _winreg as winreg
-elif sys.platform == 'cygwin':
-     import cygwinreg as winreg
-else:
-    import wslwinreg as winreg
-
-from winreg import ConnectRegistry, HKEY_CURRENT_USER, OpenKey, QueryValueEx
+try:
+    from _winreg import ConnectRegistry, HKEY_CURRENT_USER, OpenKey, QueryValueEx
+except ImportError:
+    from wslwinreg import ConnectRegistry, HKEY_CURRENT_USER, OpenKey, QueryValueEx
+    
 
 
 HKEY_PATH = "SOFTWARE\Valve\Steam"
